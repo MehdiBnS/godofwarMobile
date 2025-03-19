@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen'; 
+import Principal from './screens/Principal'; 
+import Game from './screens/Game'; 
+import Produit from './screens/Produit'; 
+import Info from './screens/Info'; 
+import ProduitOne from './screens/ProduitOne'; 
+import GameDetails from './screens/GameDetails'; 
 
-export default function App() {
+
+
+const Stack = createNativeStackNavigator();
+
+function RootStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false}} />
+      <Stack.Screen name="Principal" component={Principal} options={{ headerShown: false}}/>
+      <Stack.Screen name="Game" component={Game} options={{ headerShown: false}}/>
+      <Stack.Screen name="Produit" component={Produit} options={{ headerShown: false}}/>
+      <Stack.Screen name="Info" component={Info} options={{ headerShown: false}}/>
+      <Stack.Screen name="ProduitOne" component={ProduitOne} options={{ headerShown: false}}/>
+      <Stack.Screen name="GameDetails" component={GameDetails} options={{ headerShown: false}}/>
+      
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
+  );
+}
