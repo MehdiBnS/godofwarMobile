@@ -9,7 +9,7 @@ const GameDetails = () => {
   const [gameDetails, setGameDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const apiKey = '06b30e1e0322446493f15723c3dfc575'; // Votre clé API
+  const apiKey = ''; // Votre clé API
 
   useEffect(() => {
     const fetchGameDetails = async () => {
